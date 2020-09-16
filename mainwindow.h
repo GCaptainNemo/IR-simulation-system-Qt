@@ -1,10 +1,21 @@
-#ifndef MAINWINDOW_H
+﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
 #include <QMainWindow>
 #include <QMenu>
-#include <QMenuBar>u
+#include <QMenuBar>
+#include <QStringLiteral>
+#include <QMessageBox>
+#include <QCloseEvent>
+#include <QDebug>
+#include <QHBoxLayout>
+#include <QFileDialog>
+#include <QVector>
 
+
+
+#include "window_project_about.h"
+#include "central_widget.h"
 
 class MainWindow : public QMainWindow
 {
@@ -16,7 +27,19 @@ public:
     void createActions();
     void createMenus();
 
+    
+protected:
+    bool parseThreeDFiles(QString fileName, QVector<float> &vPoints); 
+    
+    
+    
 private:
+
+    virtual void closeEvent(QCloseEvent *event);
+
+    central_widget * centralWidget;
+
+
     // filemenu
     QMenu *fileMenu;
     QAction *newAction;
@@ -113,6 +136,13 @@ private:
     QMenu * helpMenu;
     QAction * aboutAction;
 
+
+    window_project_about * projectAboutWindow;
+
+
+private slots:
+    void aboutSLOT();
+    void openSLOT();
 
 
 };

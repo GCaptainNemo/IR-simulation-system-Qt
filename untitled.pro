@@ -16,11 +16,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    central_widget.cpp \
+    glmodel.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    window_project_about.cpp
 
 HEADERS += \
-    mainwindow.h
+    central_widget.h \
+    glmodel.h \
+    mainwindow.h \
+    window_project_about.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
